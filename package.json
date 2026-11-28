@@ -1,5 +1,14 @@
 {
   "name": "geobuscas",
   "version": "1.0.0",
-  "private": true
+  "description": "GeoBusca - Localizador de arquivos e projetos de georreferenciamento",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
 }

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoBusca</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-brand">GeoBusca</div>
+    <nav class="header-nav">
+      <a href="#" id="link-inicio">Início</a>
+    </nav>
+  </header>
+
+  <main class="app-body">
+    <!-- TELA INICIAL -->
+    <section id="tela-inicial" class="tela ativa">
+      <div class="inicial-container">
+        <h1 class="inicial-titulo">GeoBusca</h1>
+        <p class="inicial-descricao">
+          BuscaGeo é um programa que ajuda pessoas a encontrar arquivos e projetos de georreferenciamento que estão guardados no próprio computador.
+          Quem trabalha com georreferenciamento guarda shapefiles, KML, DWG, PDFs e planilhas em muitas pastas e HDs.
+        </p>
+        <div class="inicial-acoes">
+          <button id="btn-comecar" class="btn btn-primary">Começar a buscar</button>
+          <button id="btn-adicionar-inicio" class="btn btn-secondary">Adicionar pasta ou HD</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA PRINCIPAL -->
+    <section id="tela-principal" class="tela">
+      <div class="principal-layout">
+        <aside class="sidebar">
+          <div class="sidebar-section">
+            <h2 class="sidebar-label">ESCOPO DA BUSCA</h2>
+            <h3 class="sidebar-titulo">Pastas escolhidas</h3>
+            <p class="sidebar-texto">
+              Escolha as pastas que o BusaGeo pode catalogar. A busca fica limitada a esse escopo.
+            </p>
+            <div class="empty-box">Nenhuma pasta adicionada.</div>
+            <button class="btn btn-outline btn-add-folder">+ Adicionar pasta</button>
+          </div>
+
+          <div class="privacy-box">
+            <div class="privacy-header">
+              <svg class="privacy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <h4>Busca privada</h4>
+            </div>
+            <p class="privacy-texto">
+              Arquivos e texto extraído permanecem neste computador. O BusaGeo não envia dados para serviços externos.
+            </p>
+          </div>
+        </aside>
+
+        <div class="main-area">
+          <header class="main-header">
+            <span class="section-label">LOCALIZAÇÃO DE ARQUIVOS</span>
+            <div class="header-row">
+              <div>
+                <h2 class="main-titulo">Encontre seus arquivos</h2>
+                <p class="main-subtitulo">
+                  Pesquise por nome, caminho ou palavras dentro dos documentos catalogados.
+                </p>
+              </div>
+              <div class="catalog-status">
+                <span class="status-dot"></span>
+                Catálogo ainda não atualizado
+              </div>
+            </div>
+          </header>
+
+          <div class="search-box">
+            <div class="search-input-wrap">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                id="campo-busca"
+                type="text"
+                placeholder="Ex: Fazenda Santa Luzia, CAR, matrícula..."
+                autocomplete="off"
+              />
+              <button id="limpar-busca" class="clear-search" type="button" aria-label="Limpar busca">&times;</button>
+            </div>
+            <button id="btn-buscar" class="btn btn-primary btn-buscar">Buscar</button>
+          </div>
+
+          <div class="filters">
+            <div class="filter-group">
+              <label for="filtro-extensao">EXTENSÃO</label>
+              <select id="filtro-extensao">
+                <option>Todas as extensões</option>
+                <option>Shapefile (.shp)</option>
+                <option>KML (.kml)</option>
+                <option>DWG (.dwg)</option>
+                <option>PDF (.pdf)</option>
+                <option>Planilhas (.xlsx, .xls, .ods)</option>
+                <option>Texto (.txt, .csv, .xml, .rtf)</option>
+                <option>Documentos (.docx, .odt)</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filtro-tipo">É ARQUIVO</label>
+              <select id="filtro-tipo">
+                <option>Todos</option>
+                <option>Arquivos</option>
+                <option>Pastas</option>
+              </select>
+            </div>
+            <div class="filter-group order-group">
+              <label for="filtro-ordenar">ORDENAR</label>
+              <select id="filtro-ordenar">
+                <option>Mais recentes</option>
+                <option>Nome (A–Z)</option>
+                <option>Nome (Z–A)</option>
+                <option>Maior tamanho</option>
+                <option>Menor tamanho</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="search-note">
+            A busca no conteúdo inclui PDF, DOCX, ODT, XLSX, XLSM, ODS, RTF, TXT, CSV e XML.
+          </p>
+
+          <div class="stats">
+            <div class="stat-item">
+              <span class="stat-circle circle-blue"></span>
+              <div class="stat-info">
+                <strong>0</strong>
+                <span>arquivos no catálogo</span>
+              </div>
+            </div>
+            <div class="stat-item">
+              <span class="stat-circle circle-green"></span>
+              <div class="stat-info">
+                <strong>0</strong>
+                <span>resultados nesta busca</span>
+              </div>
+            </div>
+            <div class="stat-item">
+              <span class="stat-circle circle-yellow"></span>
+              <div class="stat-info">
+                <strong>0</strong>
+                <span>pastas no escopo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="results">
+            <h3 class="results-titulo">Resultados</h3>
+            <div class="empty-results">
+              <svg class="results-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <p class="empty-title">Catálogo vazio</p>
+              <p class="empty-subtitle">Adicione pastas e clique em "Atualizar catálogo".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
