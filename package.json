@@ -1,7 +1,7 @@
 {
   "name": "geobuscas",
   "version": "1.0.0",
-  "description": "GeoBusca - Localizador de arquivos e projetos de georreferenciamento",
+  "description": "BuscaGeo - Localizador de arquivos e projetos de georreferenciamento",
   "main": "main.js",
   "scripts": {
     "start": "electron .",

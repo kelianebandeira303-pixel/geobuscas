@@ -1,4 +1,4 @@
-// GeoBusca - Interações do frontend
+// BuscaGeo - Interações do frontend
 // Por enquanto este arquivo apenas gerencia a navegação entre as telas e
 // simula ações que, no futuro, serão ligadas ao backend/Electron.
 
